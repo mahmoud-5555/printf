@@ -24,14 +24,18 @@ void _putchar(char c)
  * @b: add next char
  * Return: no return void
 */
-
-void p_buffer(char list[], int *b)
-{
-	if (b > 0)
-		write(1,&list[0],*b);
-	*b = 0;
-
-}
+/*
+*void p_buffer(char list[], int *b)
+*{
+*	if (b > 0)
+*		write(1,&list[0],*b);
+*	*b = 0;
+*
+*}
+*
+*int counter = 0;
+	char list[BUFFER_SIZE];
+*/
 
 /**
  * _printf - print any think like the printf function in c
@@ -44,8 +48,6 @@ void p_buffer(char list[], int *b)
 */
 int _printf(const char *format, ...)
 {
-	int counter = 0;
-	char list[BUFFER_SIZE];
 	int counter = 0, itreator = 0;
 	va_list args;
 
