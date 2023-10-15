@@ -6,8 +6,8 @@
 int _printf(const char *format, ...);
 int printint(va_list arg);
 void _putchar(char);
+int print_string(char *);
 
-int *_handl_theformat(char *);
 /* The declareing of all function*/
 
 #endif

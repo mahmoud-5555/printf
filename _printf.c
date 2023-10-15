@@ -28,43 +28,44 @@ void _putchar(char c)
 int _printf(const char *format, ...)
 {
 	int counter = 0, itreator = 0;
-	int *ordar;
 	va_list args;
 
 	va_start(args, format);
 	if (format != NULL)
 	{
-		while ((*format + itreator) != '\0')
+		while (*(format + itreator) != '\0')
 		{
-			if ((*format + itreator) == '%')
+			if (*(format + itreator) == '%')
 			{
 				itreator++;
-				if (format == '%')
+				if (*(format + itreator) == '%')
 				{
-					putchar('%');
+					_putchar('%');
 				}
-				else if (format == 'c')
+				else if (*(format + itreator) == 'c')
 				{
-					_putchar(va_arg(args, char));
+					_putchar(va_arg(args, int));
 				}
-				else if (format == 's')
+				else if (*(format + itreator) == 's')
 				{
-					print_string(va_arg(args, char));
+					  counter += print_string(va_arg(args, char *));
+					  counter--;
 				}
 				else
 				{
-					_putchar('%')
+					_putchar('%');
 				}
-				itreator++;
+				counter++;
 			}
 			else
 			{
-				_putchar(*format + itreator);
+				_putchar(*(format + itreator));
 				counter++;
 			}
 			itreator++;
 		}
 	}
+	va_end(args);
 	return (counter);
 }
 /**
@@ -82,7 +83,7 @@ int print_string(char *string)
 	{
 		while (*(string + itrator) != '\0')
 		{
-			_putcahr(*(string + itrator));
+			_putchar(*(string + itrator));
 			counter++;
 			itrator++;
 		}
