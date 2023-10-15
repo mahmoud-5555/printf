@@ -5,7 +5,7 @@
 #include<stdarg.h>
 #include<unistd.h>
 
-#define BUFFER_SIZE 1024 
+#define BUFFER_SIZE 1024
 
 int _printf(const char *format, ...);
 int printint(va_list args);
