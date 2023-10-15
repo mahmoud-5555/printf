@@ -1,9 +1,9 @@
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<stdarg.h>
+#include"main.h"
 #include <stdio.h>
 #include <math.h>
-#include "main.h"
 /**
  * _putchar - print char
  *
@@ -17,6 +17,23 @@ void _putchar(char c)
 }
 
 /**
+ * 
+ * buffer - print contents
+ * 
+ * @list: input arry 
+ * @b: add next char
+ * Return: no return void
+*/
+
+void p_buffer(char list[], int *b)
+{
+	if (b > 0)
+		write(1,&list[0],*b);
+	*b = 0;
+
+}
+
+/**
  * _printf - print any think like the printf function in c
  *
  * @format: the string which will be printed
@@ -27,38 +44,47 @@ void _putchar(char c)
 */
 int _printf(const char *format, ...)
 {
+	int counter = 0;
+	char list[BUFFER_SIZE];
 	int counter = 0, itreator = 0;
-	int *ordar;
 	va_list args;
 
 	va_start(args, format);
 	if (format != NULL)
 	{
-		while ((*format + itreator) != '\0')
+		while (*(format + itreator) != '\0')
 		{
-			if ((*format + itreator) == '%')
+			if (*(format + itreator) == '%')
 			{
 				itreator++;
-				if (format == '%')
+				if (*(format + itreator) == '%')
+				{
 					_putchar('%');
-				else if (format == 'c')
-					_putchar(va_arg(args, char));
-				else if (format == 's')
-					counter += print_string(va_arg(args, char));
+				}
+				else if (*(format + itreator) == 'c')
+				{
+					_putchar(va_arg(args, int));
+				}
+				else if (*(format + itreator) == 's')
+				{
+					  counter += print_string(va_arg(args, char *));
+					  counter--;
+				}
 				else
 				{
 					_putchar('%');
-					counter++;
 				}
+				counter++;
 			}
 			else
 			{
-				_putchar(*format + itreator);
+				_putchar(*(format + itreator));
 				counter++;
 			}
 			itreator++;
 		}
 	}
+	va_end(args);
 	return (counter);
 }
 /**
@@ -69,6 +95,7 @@ int _printf(const char *format, ...)
 
 int print_string(char *string)
 {
+
 	int counter = 0;
 	int itrator = 0;
 
@@ -76,7 +103,7 @@ int print_string(char *string)
 	{
 		while (*(string + itrator) != '\0')
 		{
-			_putcahr(*(string + itrator));
+			_putchar(*(string + itrator));
 			counter++;
 			itrator++;
 		}
