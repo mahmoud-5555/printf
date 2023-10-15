@@ -11,6 +11,8 @@ int p_bin(va_list dnum)
 {
 	int bin_num = 0, remain, x = 1;
 
+	if (dnum < 0)
+		exit(98);
 	while (dnum != 0)
 	{
 		remain = dnum % 2;
