@@ -1,9 +1,9 @@
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<stdarg.h>
+#include"main.h"
 #include <stdio.h>
 #include <math.h>
-#include "main.h"
 /**
  * _putchar - print char
  *
@@ -17,6 +17,23 @@ void _putchar(char c)
 }
 
 /**
+ * 
+ * buffer - print contents
+ * 
+ * @list: input arry 
+ * @b: add next char
+ * Return: no return void
+*/
+
+void p_buffer(char list[], int *b)
+{
+	if (b > 0)
+		write(1,&list[0],*b);
+	*b = 0;
+
+}
+
+/**
  * _printf - print any think like the printf function in c
  *
  * @format: the string which will be printed
@@ -27,6 +44,8 @@ void _putchar(char c)
 */
 int _printf(const char *format, ...)
 {
+	int counter = 0;
+	char list[BUFFER_SIZE];
 	int counter = 0, itreator = 0;
 	va_list args;
 
