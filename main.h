@@ -10,6 +10,7 @@ int _printf(const char *format, ...);
 int printint(va_list arg);
 void _putchar(char);
 void p_buffer(char list[], int *b);
+int *_handl_theformat(char *);
 /* The declareing of all function*/
 
 #endif
