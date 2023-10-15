@@ -1,7 +1,7 @@
 #include"main.h"
 
 /**
- * p_bin - convert decimal to binary 
+ * p_bin - convert decimal to binary
  *
  * @dnum: input
  *
@@ -9,7 +9,7 @@
 */
 int p_bin(va_list dnum)
 {
-	int bin_num = 0, remain, x =1;
+	int bin_num = 0, remain, x = 1;
 
 	while (dnum != 0)
 	{
