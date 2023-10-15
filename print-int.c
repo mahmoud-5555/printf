@@ -8,22 +8,29 @@
 */
 int printint(va_list arg)
 {
-	int n = va_arg(arg, int);
-	int input = 0, count;
+	long int n = va_arg(arg, int);
+	int input = 0, count = 0, x;
 	char tmp[30];
 
 	if (n < 0)
 	{
-		_putchar('-');
+		list('-');
 		n = n * -1;
 		input++;
 	}
+	if (n == 0)
+		list[count--] = '0';
 	while (n > 0)
 	{
-		tmp[count + 1] = (n % 10) + 48);
+		tmp[count++] = ((n % 10) + '0');
 		n = n / 10;
 		input++;
 	}
-	_putchar(n);
+	x = count--;
+	while (x >= 0)
+	{
+		list(tmp[x]);
+		x--;
+	}
 	return (input);
 }

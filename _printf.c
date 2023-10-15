@@ -2,11 +2,12 @@
 #include<unistd.h>
 #include<stdarg.h>
 #include"main.h"
+
 /**
- * 
+ *
  * _putcahr - print char
- * 
- * @c: the char what we wnna to print it 
+ *
+ * @c: the char what we wnna to print it
  * Return: no return void
 */
 
@@ -14,6 +15,23 @@ void _putchar(char c)
 {
 
 	write(1,&c,1);
+
+}
+
+/**
+ * 
+ * buffer - print contents
+ * 
+ * @list: input arry 
+ * @b: add next char
+ * Return: no return void
+*/
+
+void p_buffer(char list[], int *b)
+{
+	if (b > 0)
+		write(1,&list[0],*b);
+	*b = 0;
 
 }
 
@@ -29,6 +47,7 @@ void _putchar(char c)
 int _printf(const char *format, ...)
 {
 	int counter = 0;
+	char list[BUFFER_SIZE];
 	va_list
 
 
