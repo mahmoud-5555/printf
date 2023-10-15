@@ -2,11 +2,11 @@
 /**
  * printint - print integer
  *
- * @arg: input argument
+ * @args: input argument
  *
  * Return: number
 */
-int printint(va_list arg)
+int printint(va_list args)
 {
 	long int n = va_arg(arg, int);
 	int input = 0, count = 0, x;
