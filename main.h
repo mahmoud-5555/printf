@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdlib.h>
 #include<stdarg.h>
 #include<unistd.h>
@@ -11,6 +12,7 @@ int printint(va_list args);
 int p_bin(va_list dnum);
 void _putchar(char);
 int print_string(char *);
+
 /* The declareing of all function*/
 
 #endif
