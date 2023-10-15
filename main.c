@@ -14,10 +14,12 @@ int main(void)
 	len = printf("%c test_char\n",'A');
 	printf("%i\n", len);
 	_printf("%c is char , %s is string  and we can out string %s and %c",'a',"word"," word2", 'b');
-	len = _printf("%c is char , %s is string  and we can out string %s and %c",'a',"word"," word2", 'b');
+	len = _printf("%c is char , %s is string  and we can out string %s and\n %c",'a',"word"," word2", 'b');
 	printf("%i",len);
-	len = printf("%c is char , %s is string  and we can out string %s and %c",'a',"word"," word2", 'b');
+	len = printf("%c is char , %s is string  and we can out string %s and %c\n",'a',"word"," word2", 'b');
 	printf("%i",len);
+	/*printf("%hsgdfhj\n","mahmoud");*/
+	_printf("%hsgdfhj\n","mahmoud");
 
 
 

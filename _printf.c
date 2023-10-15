@@ -1,108 +1,79 @@
-#include<stdlib.h>
-#include<unistd.h>
-#include<stdarg.h>
-#include"main.h"
 #include <stdio.h>
-#include <math.h>
-/**
- * _putchar - print char
- *
- * @c: the char what we wnna to print it
- * Return: no return void
-*/
+#include <stdarg.h>
 
-void _putchar(char c)
-{
-	write(1, &c, 1);
+void _putchar(char c) {
+    putchar(c);
 }
 
-/**
- * 
- * buffer - print contents
- * 
- * @list: input arry 
- * @b: add next char
- * Return: no return void
-*/
-/*
-*void p_buffer(char list[], int *b)
-*{
-*	if (b > 0)
-*		write(1,&list[0],*b);
-*	*b = 0;
-*
-*}
-*
-*int counter = 0;
-	char list[BUFFER_SIZE];
-*/
-
-/**
- * _printf - print any think like the printf function in c
- *
- * @format: the string which will be printed
- * and it will depend of it the what the
- * type of the argumint will be printed
- *
- * Return: (int value)num of char that printed
-*/
-int _printf(const char *format, ...)
-{
-	int counter = 0, itreator = 0;
-	va_list args;
-
-	va_start(args, format);
-	if (format != NULL)
-	{
-		while (*(format + itreator) != '\0')
-		{
-			if (*(format + itreator) == '%')
-			{
-				itreator++;
-				if (*(format + itreator) == '%')
-					_putchar('%');
-				else if (*(format + itreator) == 'c')
-					_putchar(va_arg(args, int));
-				else if (*(format + itreator) == 's')
-				{
-					  counter += print_string(va_arg(args, char *));
-					  counter--;
-				}
-				else
-					_putchar('%');
-				counter++;
-			}
-			else
-			{
-				_putchar(*(format + itreator));
-				counter++;
-			}
-			itreator++;
-		}
-	}
-	va_end(args);
-	return (counter);
+int print_string(const char *str) {
+    int count = 0;
+    while (str && *str) {
+        _putchar(*str);
+        str++;
+        count++;
+    }
+    return count;
 }
-/**
- * print_string - function print string
- * @string: string that will printed
- * Return: num of the cahr that printed
-*/
 
-int print_string(char *string)
-{
+int print_number(int n) {
+    int count = 0;
+    if (n < 0) {
+        _putchar('-');
+        count++;
+        n = -n;
+    }
+    if (n >= 10) {
+        count += print_number(n / 10);
+    }
+    _putchar('0' + n % 10);
+    count++;
+    return count;
+}
 
-	int counter = 0;
-	int itrator = 0;
+int _printf(const char *format, ...) {
+    int counter = 0;
+    va_list args;
 
-	if (string != NULL)
-	{
-		while (*(string + itrator) != '\0')
-		{
-			_putchar(*(string + itrator));
-			counter++;
-			itrator++;
-		}
-	}
-	return (counter);
+    va_start(args, format);
+
+    while (*format) {
+        if (*format == '%') {
+            format++;
+            switch (*format) {
+                case 'c': {
+                    char c = va_arg(args, int);
+                    _putchar(c);
+                    counter++;
+                    break;
+                }
+                case 's': {
+                    const char *str = va_arg(args, const char *);
+                    counter += print_string(str);
+                    break;
+                }
+                case 'd':
+                case 'i': {
+                    int num = va_arg(args, int);
+                    counter += print_number(num);
+                    break;
+                }
+                case '%':
+                    _putchar('%');
+                    counter++;
+                    break;
+                default:
+                    _putchar('%');
+                    _putchar(*format);
+                    counter += 2;
+                    break;
+            }
+        } else {
+            _putchar(*format);
+            counter++;
+        }
+        format++;
+    }
+
+    va_end(args);
+    return counter;
 }
