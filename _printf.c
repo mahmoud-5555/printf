@@ -58,22 +58,16 @@ int _printf(const char *format, ...)
 			{
 				itreator++;
 				if (*(format + itreator) == '%')
-				{
 					_putchar('%');
-				}
 				else if (*(format + itreator) == 'c')
-				{
 					_putchar(va_arg(args, int));
-				}
 				else if (*(format + itreator) == 's')
 				{
 					  counter += print_string(va_arg(args, char *));
 					  counter--;
 				}
 				else
-				{
 					_putchar('%');
-				}
 				counter++;
 			}
 			else
