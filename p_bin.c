@@ -9,17 +9,18 @@
 */
 int p_bin(int dnum)
 {
-	int bin_num = 0, remain, x = 1;
+	unsigned int x = 1 << 31;
+	int count = 0, i, bit;
+	char z;
 
-	if (dnum < 0)
-		exit(98);
-	while (dnum != 0)
+	for (i = 0; i < 32; i++)
 	{
-		remain = dnum % 2;
-		bin_num += remain * x;
-		x *= 10;
-		dnum /= 2;
+		bit = (dnum & x) ? 1 : 0;
+		z = '0' + bit;
+		write(1, &z, 1);
+		dnum <<= 1;
+		count++;
 	}
-	return (bin_num);
+	return (count);
 }
 
