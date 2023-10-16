@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...);
 int printint(va_list args);
-int p_bin(va_list dnum);
+int p_bin(int dnum);
 void _putchar(char);
 int print_string(char *);
 

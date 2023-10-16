@@ -1,3 +1,4 @@
+#include"main.h"
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -57,6 +58,11 @@ int _printf(const char *format, ...) {
                     counter += print_number(num);
                     break;
                 }
+		case 'b': {
+				  int dnum = va_arg(args, int);
+				  counter += p_bin(dnum);
+				  break;
+			  }
                 case '%':
                     _putchar('%');
                     counter++;
