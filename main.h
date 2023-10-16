@@ -22,7 +22,7 @@ typedef struct format
 int _printf(const char *format, ...);
 int print_num_v(va_list *args);
 int print_num(int n);
-int p_bin(va_list dnum);
+int p_bin(va_list *args);
 int _putchar_v(va_list *args);
 int _putchar(char c);
 int print_string(va_list *args);
