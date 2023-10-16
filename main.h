@@ -2,16 +2,30 @@
 #define MAIN_H
 
 #include <stdlib.h>
-#include<stdarg.h>
-#include<unistd.h>
+#include <stdarg.h>
+#include <unistd.h>
 
 #define BUFFER_SIZE 1024
 
+/**
+ * format - struct (new data type using to handel cases)
+ * @spf: is the specifaier to the var
+ * @f: pointer to the function that take va_list type as prameter
+ *
+*/
+typedef struct format
+{
+    char spf;
+    int (*f)(va_list *);
+} match;
+
 int _printf(const char *format, ...);
-int printint(va_list args);
+int print_num_v(va_list *args);
+int print_num(int n);
 int p_bin(va_list dnum);
-void _putchar(char);
-int print_string(char *);
+int _putchar_v(va_list *args);
+int _putchar(char c);
+int print_string(va_list *args);
 
 /* The declareing of all function*/
 
