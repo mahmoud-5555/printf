@@ -10,17 +10,18 @@
 int p_bin(int dnum)
 {
 	unsigned int x = 1 << 31;
-	int count = 0, i, bit;
-	char z;
+	int i, bit, started = 0;
 
 	for (i = 0; i < 32; i++)
 	{
 		bit = (dnum & x) ? 1 : 0;
-		z = '0' + bit;
-		write(1, &z, 1);
+		if (bit || started)
+		{
+			_putchar('0' + bit);
+			started = 1;
+		}
 		dnum <<= 1;
-		count++;
 	}
-	return (count);
+	return (0);
 }
 
