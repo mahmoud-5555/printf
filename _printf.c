@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 	{'i', print_num_v}};
 
 	va_start(args, format);
-	if (format == NULL)
+	if (format == NULL || (format[0] == '0' && format[1] == '\0'))
 		return (0);
 	while (format[itrator] != '\0')
 	{
