@@ -3,7 +3,7 @@
 /**
  * print_num_v - print number from argumants_list
  * @args:the pointer to argumint list (pass by refrance)
- * Return:num of char that function print it 
+ * Return:num of char that function print it
 */
 int print_num_v(va_list *args)
 {
@@ -23,7 +23,7 @@ int print_num_v(va_list *args)
 		num = -n;
 	}
 	else
-        num = n;
+		num = n;
 	if (num != 0)
 	{
 		if ((num / 10) != 0)
@@ -37,9 +37,9 @@ int print_num_v(va_list *args)
 }
 
 /**
- * print_num_v - print number from n
+ * print_num - print number from n
  * @n:the number that will be printed
- * Return:num of char that function print it 
+ * Return:num of char that function print it
 */
 int print_num(int n)
 {
@@ -58,7 +58,7 @@ int print_num(int n)
 		num = -n;
 	}
 	else
-        num = n;
+		num = n;
 	if (num != 0)
 	{
 		if ((num / 10) != 0)

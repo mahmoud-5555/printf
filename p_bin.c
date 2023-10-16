@@ -3,7 +3,7 @@
 /**
  * p_bin - convert decimal to binary
  *
- * @dnum: input
+ * @args: input
  *
  * Return: bin_num
 */
