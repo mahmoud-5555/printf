@@ -11,8 +11,7 @@ int _printf(const char *format, ...);
 int printint(va_list args);
 int p_bin(int dnum);
 void _putchar(char);
-int print_string(char *);
-
+int print_string(const char *str);
 /* The declareing of all function*/
 
 #endif

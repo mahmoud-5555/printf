@@ -1,5 +1,7 @@
+#include"main.h"
 #include <stdio.h>
 #include <stdarg.h>
+
 
 void _putchar(char c) {
     putchar(c);
@@ -61,6 +63,11 @@ int _printf(const char *format, ...) {
                     _putchar('%');
                     counter++;
                     break;
+		    case 'b':{
+		    int dnum = va_arg(args, int);
+		    counter += p_bin(dnum);
+		    break;
+			     }
                 default:
                     _putchar('%');
                     _putchar(*format);
