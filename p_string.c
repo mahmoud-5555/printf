@@ -20,5 +20,7 @@ int print_string(va_list *args)
 			itrator++;
 		}
 	}
+	else
+		_putchar(0);
 	return (counter);
 }
