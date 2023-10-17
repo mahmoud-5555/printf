@@ -65,7 +65,7 @@ int _printf(const char *form, ...)
 				}
 			}
 			if (test)
-				handel_case(form, &itrator);
+				counter += handel_case(form, &itrator);
 		}
 		else
 		{
