@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 				}
 				else if (format[itrator] == '%')
 				{
-					_putchar('%');
+					_putchar(37);
 					counter++;
 					break;
 				}
