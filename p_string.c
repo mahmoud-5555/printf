@@ -21,6 +21,9 @@ int print_string(va_list *args)
 		}
 	}
 	else
+	{
 		_putchar(0);
+		counter++;
+	}
 	return (counter);
 }
