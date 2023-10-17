@@ -19,6 +19,7 @@ typedef struct format
     int (*f)(va_list *);
 } match;
 
+int len(char *string);
 int printint(va_list args);
 int _printf(const char *format, ...);
 int print_num_v(va_list *args);

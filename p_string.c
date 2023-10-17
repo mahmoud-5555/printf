@@ -1,4 +1,5 @@
 #include "main.h"
+int len(char *string);
 
 /**
  * print_string - function that print string from input argumants list
@@ -8,18 +9,43 @@
 int print_string(va_list *args)
 {
 	char *string = va_arg(*args, char *);
-	int counter = 0;
-	int itrator = 0;
+	int itrator = 0, l;
 
-	if (string != NULL)
+	if (string == NULL)
 	{
-		while (*(string + itrator) != '\0')
+		string = "(NULL)";
+		l = len(string);
+		while (itrator < l)
 		{
-			_putchar(*(string + itrator));
-			counter++;
+			_putchar(string[itrator]);
 			itrator++;
 		}
+		return (l);
 	}
-	return (counter);
+	else
+	{
+		l = len(string);
+		while (itrator < l)
+		{
+			_putchar(string[itrator]);
+			itrator++;
+		}
+		return (l);
+	}
 
+}
+/**
+ * len - string length
+ *
+ * @string: input
+ *
+ * Return: len
+*/
+int len(char *string)
+{
+	int itrator = 0;
+
+	while (!string[itrator])
+		itrator++;
+	return (itrator);
 }
