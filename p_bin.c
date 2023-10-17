@@ -9,19 +9,22 @@
 */
 int p_bin(va_list *args)
 {
-	unsigned int x = 1 << 31;
-	int i, bit, started = 0, dnum = va_arg(*args, int);
+	int bit, i, count = 0;
+	unsigned int num = va_arg(*args, unsigned int);
 
-	for (i = 0; i < 32; i++)
+	for (i = 31; i >= 0; i--)
 	{
-		bit = (dnum & x) ? 1 : 0;
-		if (bit || started)
+		bit = (num >> i) & 1;
+		if (bit || count > 0)
 		{
-			_putchar('0' + bit);
-			started = 1;
+			_putchar(bit + '0');
+			count++;
 		}
-		dnum <<= 1;
 	}
-	return (0);
+	if (count == 0)
+	{
+		_putchar('0');
+		count++;
+	}
+	return (count);
 }
-
