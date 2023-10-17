@@ -19,6 +19,7 @@ typedef struct format
     int (*f)(va_list *);
 } match;
 
+int p_reverse(va_list args);
 int p_pointer(va_list args);
 int p_hex(unsigned long int num);
 int printint(va_list args);
