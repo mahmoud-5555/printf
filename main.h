@@ -29,7 +29,7 @@ int print_string(va_list *args);
 int p_pointer(va_list args);
 int p_hex(unsigned long int num);
 int handel_case(const char *form, int *itrator);
-
+int p_octal(va_list args);
 
 
 /* The declareing of all function*/
