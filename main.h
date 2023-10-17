@@ -8,22 +8,18 @@
 #define BUFFER_SIZE 1024
 
 /**
- * format - struct (new data type using to handel cases)
+ * struct format - struct (new data type using to handel cases)
  * @spf: is the specifaier to the var
  * @f: pointer to the function that take va_list type as prameter
  *
 */
 typedef struct format
 {
-    char spf;
-    int (*f)(va_list *);
+	char spf;
+	int (*f)(va_list *);
 } match;
 
-int p_reverse(va_list args);
-int p_pointer(va_list args);
-int p_hex(unsigned long int num);
-int printint(va_list args);
-int _printf(const char *format, ...);
+int _printf(const char *form, ...);
 int print_num_v(va_list *args);
 int print_num(int n);
 int p_bin(va_list *args);
