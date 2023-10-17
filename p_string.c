@@ -23,12 +23,16 @@ int print_string(va_list *args)
 	else
 	{
 		string = "(null)";
+<<<<<<< HEAD
 		while (*(string + itrator) != '\0')
 		{
 			_putchar(*(string + itrator));
 			counter++;
 			itrator++;
 		}
+=======
+		counter++;
+>>>>>>> origin
 	}
 	return (counter);
 }
