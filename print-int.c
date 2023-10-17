@@ -11,7 +11,7 @@ int printint(va_list args)
 {
 	long int n = va_arg(args, long int);
 	char buffer[BUFFER_SIZE];
-	int count = 0, x = 0, y = count - 1;
+	int count = 0, x = 0, y;
 	char tmp;
 
 	if (n < 0)
@@ -28,6 +28,7 @@ int printint(va_list args)
 	{
 		buffer[count++] = '0';
 	}
+	y = count - 1;
 	while (x < y)
 	{
 		tmp = buffer[x];
