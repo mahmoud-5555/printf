@@ -22,7 +22,7 @@ int print_string(va_list *args)
 	}
 	else
 	{
-		_putchar(0);
+		string = "(null)";
 		counter++;
 	}
 	return (counter);
