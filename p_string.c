@@ -22,8 +22,13 @@ int print_string(va_list *args)
 	}
 	else
 	{
-		_putchar(0);
-		counter++;
+		string = "(null)";
+		while (*(string + itrator) != '\0')
+		{
+			_putchar(*(string + itrator));
+			counter++;
+			itrator++;
+		}
 	}
 	return (counter);
 }
