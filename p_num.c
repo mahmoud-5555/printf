@@ -21,6 +21,7 @@ int print_num_v(va_list *args)
 	{
 		_putchar('-');
 		num = -n;
+		counter++;
 	}
 	else
 		num = n;
@@ -56,6 +57,7 @@ int print_num(int n)
 	{
 		_putchar('-');
 		num = -n;
+		counter++;
 	}
 	else
 		num = n;
