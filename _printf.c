@@ -32,36 +32,36 @@ int _putchar_v(va_list *args)
 /**
  * _printf - print any think like the printf function in c
  *
- * @format: the string which will be printed
+ * @form: the string which will be printed
  * and it will depend of it the what the
  * type of the argumint will be printed
  *
  * Return: (int value)num of char that printed
 */
 
-int _printf(const char *format, ...)
+int _printf(const char *form, ...)
 {
 	int counter = 0, itrator = 0, i;
 	va_list args;
 	match formla[] = {{'c', _putchar_v}, {'s', print_string}, {'d', print_num_v},
 	{'i', print_num_v}};
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '0' && format[1] == '\0'))
-		return (0);
-	while (format[itrator] != '\0')
+	va_start(args, form);
+	if (form == NULL || (form[0] == '0' && (form[1] == '\0' || form[1] == ' ')))
+		return (-1);
+	while (form[itrator] != '\0')
 	{
-		if (format[itrator] == '%')
+		if (form[itrator] == '%')
 		{
 			itrator++;
 			for (i = 0; i < 4; i++)
 			{
-				if (formla[i].spf == format[itrator])
+				if (formla[i].spf == form[itrator])
 				{
 					counter += formla[i].f(&args);
 					break;
 				}
-				else if (format[itrator] == '%')
+				else if (form[itrator] == '%')
 				{
 					_putchar('%');
 					counter++;
@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(format[itrator]);
+			_putchar(form[itrator]);
 			counter++;
 		}
 		itrator++;
