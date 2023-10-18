@@ -17,7 +17,7 @@ int p_bin(va_list *args)
 	bin[0] = *n / mostSbit;
 
 
-	for (itrator = 0; itrator < 31; itrator++)
+	for (itrator = 1; itrator < 32; itrator++)
 
 	{
 
