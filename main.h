@@ -26,11 +26,12 @@ int p_bin(va_list *args);
 int _putchar_v(va_list *args);
 int _putchar(char c);
 int print_string(va_list *args);
-int p_pointer(va_list args);
+int p_Hex_v(va_list *args);
 int p_Hex(unsigned long int num);
-int p_hex(unsigned long int num);
+int p_pointer(va_list *args);
+int p_hex(va_list *args);
 int handel_case(const char *form, int *itrator);
-int p_octal(va_list args);
+int p_octal(va_list *args);
 
 
 /* The declareing of all function*/

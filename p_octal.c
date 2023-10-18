@@ -8,11 +8,11 @@
  * Return: number
 */
 
-int p_octal(va_list args)
+int p_octal(va_list *args)
 {
 	int x = 0, number = 0;
 	int *list;
-	unsigned int n = va_arg(args, unsigned int);
+	unsigned int n = va_arg(*args, unsigned int);
 	unsigned int tmp = n;
 
 	while (tmp > 0)

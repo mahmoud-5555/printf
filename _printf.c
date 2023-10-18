@@ -44,7 +44,8 @@ int _printf(const char *form, ...)
 	int counter = 0, itrator = 0, i, test = 0;
 	va_list args;
 	match formla[] = {{'c', _putchar_v}, {'s', print_string}, {'d', print_num_v},
-	{'i', print_num_v}};
+	{'i', print_num_v}, {'b', p_bin}, {'p', p_pointer}, {'H', p_Hex_v},
+	{'h', p_hex}, {'o', p_octal}};
 
 	va_start(args, form);
 	if (form == NULL || (form[0] == '%' && (form[1] == '\0' || form[1] == ' ')))
