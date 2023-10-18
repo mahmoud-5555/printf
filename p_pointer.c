@@ -5,7 +5,7 @@
  * @args: input
  *
  * Return: add
-*/
+ */
 
 int p_pointer(va_list args)
 {
@@ -36,10 +36,43 @@ int p_pointer(va_list args)
  * @num: input
  *
  * Return: hex number
-*/
+ */
 int p_Hex(unsigned long int num)
 {
 	char hexChars[] = "0123456789ABCDEF";
+	char hexBuffer[BUFFER_SIZE];
+	int count = 0, i;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num > 0)
+	{
+		hexBuffer[count] = hexChars[num % 16];
+		num /= 16;
+		count++;
+	}
+
+	for (i = count - 1; i >= 0; i--)
+	{
+		_putchar(hexBuffer[i]);
+	}
+	return (count);
+}
+
+/**
+ * p_hex - print hexadecimal
+ *
+ * @num: input
+ *
+ * Return: hex number
+ */
+int p_hex(unsigned long int num)
+{
+	char hexChars[] = "0123456789abcdef";
 	char hexBuffer[BUFFER_SIZE];
 	int count = 0, i;
 
