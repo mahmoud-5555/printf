@@ -27,17 +27,17 @@ int p_pointer(va_list args)
 	t = (unsigned long int)pointer;
 	_putchar('0');
 	_putchar('x');
-	return (p_hex(t));
+	return (p_Hex(t));
 }
 
 /**
- * p_hex - print hexadecimal
+ * p_Hex - print hexadecimal
  *
  * @num: input
  *
  * Return: hex number
 */
-int p_hex(unsigned long int num)
+int p_Hex(unsigned long int num)
 {
 	char hexChars[] = "0123456789ABCDEF";
 	char hexBuffer[BUFFER_SIZE];
