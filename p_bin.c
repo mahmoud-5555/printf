@@ -6,25 +6,46 @@
  * @args: input
  *
  * Return: bin_num
-*/
+ */
 int p_bin(va_list *args)
 {
-	int bit, i, count = 0;
-	unsigned int num = va_arg(*args, unsigned int);
+	unsigned int  mostSbit = 2147483648, itrator, sumbin;
+	unsigned int bin[32];
+	int count;
+	char *n = va_arg(*args, char *);
 
-	for (i = 31; i >= 0; i--)
+	bin[0] = *n / mostSbit;
+
+
+	for (itrator = 0; itrator < 31; itrator++)
+
 	{
-		bit = (num >> i) & 1;
-		if (bit || count > 0)
+
+		mostSbit /= 2;
+
+		bin[itrator] = (*n / mostSbit) % 2;
+
+	}
+
+	for (itrator = 0, sumbin = 0, count = 0; itrator < 32; itrator++)
+
+	{
+
+		sumbin += bin[itrator];
+
+		if (sumbin || itrator == 31)
+
 		{
-			_putchar(bit + '0');
+
+			char x = '0' + bin[itrator];
+
+			write(1, &x, 1);
+
 			count++;
+
 		}
+
 	}
-	if (count == 0)
-	{
-		_putchar('0');
-		count++;
-	}
+
 	return (count);
 }
