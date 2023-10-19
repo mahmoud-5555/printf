@@ -9,12 +9,24 @@
  */
 int p_bin(va_list *args)
 {
-	unsigned int num = va_arg(*args, unsigned int);
+	int bits[32];
+	int i = 0, printed = 0, j;
+	unsigned int n = va_arg(*args, unsigned int);
 
-	if (num > 1)
+	while (n > 0)
 	{
-		p_bin(args);
+		bits[i] = n % 2;
+		n /= 2;
+		i++;
 	}
-	_putchar('0' + num % 2);
-	return (0);
+
+
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar('0' + bits[j]);
+		printed++;
+	}
+
+	return (printed);
 }
