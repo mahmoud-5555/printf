@@ -9,43 +9,12 @@
  */
 int p_bin(va_list *args)
 {
-	unsigned int  mostSbit = 2147483648, itrator, sumbin;
-	unsigned int bin[32];
-	int count;
-	char *n = va_arg(*args, char *);
+	unsigned int *num = va_arg(*args, unsigned int *);
 
-	bin[0] = *n / mostSbit;
-
-
-	for (itrator = 1; itrator < 32; itrator++)
-
+	if (num > 1)
 	{
-
-		mostSbit /= 2;
-
-		bin[itrator] = (*n / mostSbit) % 2;
-
+		custom_printf_binary(num / 2);
 	}
+	_putchar('0' + num % 2);
 
-	for (itrator = 0, sumbin = 0, count = 0; itrator < 32; itrator++)
-
-	{
-
-		sumbin += bin[itrator];
-
-		if (sumbin || itrator == 31)
-
-		{
-
-			char x = '0' + bin[itrator];
-
-			write(1, &x, 1);
-
-			count++;
-
-		}
-
-	}
-
-	return (count);
 }
