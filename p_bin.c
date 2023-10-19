@@ -9,17 +9,31 @@
  */
 int p_bin(va_list *args)
 {
-	unsigned int n = va_arg(*args, unsigned int);
-	unsigned int bno = 0;
-	unsigned int remainder, f = 1;
+	unsigned int n, mSb, x, sumbin;
+	unsigned int bin[32];
+	int count;
 
-	while (n != 0)
+	n = va_arg(*args, unsigned int);
+	mSb = 2147483648;
+	bin[0] = n / mSb;
+
+	for (x = 1; x < 32; x++)
 	{
-		remainder = n % 2;
-		bno = bno + remainder * f;
-		f = f * 10;
-		n = n / 2;
+		mSb /= 2;
+		bin[x] = (n / mSb) % 2;
 	}
 
-	return (bno);
+	for (x = 0, sumbin = 0, count = 0; x < 32; x++)
+	{
+		sumbin += bin[x];
+		if (sumbin || x == 31)
+		{
+			char y = '0' + bin[x];
+
+			write(1, &y, 1);
+			count++;
+		}
+	}
+
+	return (count);
 }
