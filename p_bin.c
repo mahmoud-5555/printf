@@ -9,12 +9,12 @@
  */
 int p_bin(va_list *args)
 {
-	unsigned int *num = va_arg(*args, unsigned int *);
+	unsigned int num = va_arg(*args, unsigned int);
 
 	if (num > 1)
 	{
-		custom_printf_binary(num / 2);
+		p_bin(args);
 	}
 	_putchar('0' + num % 2);
-
+	return (0);
 }
