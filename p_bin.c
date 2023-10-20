@@ -9,28 +9,19 @@
  */
 int p_bin(va_list *args)
 {
-	int n = va_arg(*args, int);
+	unsigned int num = va_arg(*args, unsigned int);
 	int counter = 0;
-	unsigned int num;
 
-	if (n == 0)
+	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 
-	if (n < 0)
-	{
-		_putchar('-');
-		num = -n;
-		counter++;
-	}
-	else
-		num = n;
 	if (num != 0)
 	{
 		if ((num / 2) != 0)
-			counter += print_num(num / 2);
+			counter += p_bin(num / 2);
 
 		_putchar('0' + (num % 2));
 		counter++;
