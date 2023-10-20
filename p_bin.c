@@ -9,31 +9,32 @@
  */
 int p_bin(va_list *args)
 {
-	unsigned int n, mSb, x, sumbin;
-	unsigned int bin[32];
-	int count;
+	int n = va_arg(*args, int);
+	int counter = 0;
+	unsigned int num;
 
-	n = va_arg(*args, unsigned int);
-	mSb = 2147483648;
-	bin[0] = n / mSb;
-
-	for (x = 1; x < 32; x++)
+	if (n == 0)
 	{
-		mSb /= 2;
-		bin[x] = (n / mSb) % 2;
+		_putchar('0');
+		return (1);
 	}
 
-	for (x = 0, sumbin = 0, count = 0; x < 32; x++)
+	if (n < 0)
 	{
-		sumbin += bin[x];
-		if (sumbin || x == 31)
-		{
-			char y = '0' + bin[x];
+		_putchar('-');
+		num = -n;
+		counter++;
+	}
+	else
+		num = n;
+	if (num != 0)
+	{
+		if ((num / 2) != 0)
+			counter += print_num(num / 2);
 
-			write(1, &y, 1);
-			count++;
-		}
+		_putchar('0' + (num % 2));
+		counter++;
 	}
 
-	return (count);
+	return (counter);
 }
